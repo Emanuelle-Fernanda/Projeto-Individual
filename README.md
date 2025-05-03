@@ -6,7 +6,7 @@ LogPose - um site web voltado para pessoas que gostam de One Piece, contendo alg
 
 # One Piece 🏴‍☠️
 
-![image](https://github.com/user-attachments/assets/ce796285-d221-47b3-bf96-bb7c60d27a76)
+![image](https://github.com/user-attachments/assets/bbaa368b-bad9-4ca5-bb65-6ab90152966a)
 
 One Piece é umasérie de mangá japonesa escrita e ilustrada por Eiichiro Oda . Acompanha as aventuras de Monkey D. Luffy e sua tripulação, os Piratas do Chapéu de Palha , enquanto ele explora a Grand Line em busca do tesouro mítico conhecido como "One Piece" para se tornar o próximo Rei dos Piratas.
 
