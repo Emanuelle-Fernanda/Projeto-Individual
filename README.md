@@ -1,7 +1,7 @@
-# Projeto-Individual
+# Oque é o LogPose?
 ![image](https://github.com/user-attachments/assets/5e8e6f91-df3c-4488-9fc0-77139fa52b0b)
 
-LogPose - um site web voltado para pessoas que gostam de One Piece, contendo algumas informações sobre o anime, e um chat que as pessoas podem comentar e compartilha suas experiências sobre o anime, e o site será acompanhado com um QUIZ de perguntas sobre One Piece, e com base nesse QUIZ os dados serão registrados e transmitido em uma dashboard que o usuário terá acesso após o cadastro no site.
+LogPose é um site web voltado para pessoas que gostam de One Piece, contendo algumas informações sobre o anime, e um chat que as pessoas podem comentar e compartilhar suas experiências sobre o anime, e o site será acompanhado com um QUIZ de perguntas sobre One Piece, e com base nesse QUIZ os dados serão registrados e transmitido em uma dashboard que o usuário terá acesso após o cadastro no site.
 <br><br>
 
 # One Piece 🏴‍☠️
