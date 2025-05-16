@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>LogPose</title>
+</head>
+<body>
+    <header id="nav">
+        <img src="./assets/logo.png" alt="" width="150px">
+        <div class="navbar">
+            <u>
+                <a id="home" href="#home"><li>Home</li></a>
+                <a href="personagens.html"><li>Personagens</li></a>
+                <a href="quiz"><li>Anime</li></a>
+                <a href="quiz"><li>Ilhas</li></a>
+            </u>
+        </div>
+        <div class="color">
+            <button id="b1" onclick="colorir1()"></button>
+            <button id="b2" onclick="colorir2()"></button>
+            <button id="b3" onclick="colorir3()"></button>
+        </div>
+        <div class="button">
+            <a href="cadastro.html"><button  id="cadastrar" class="Cadastrar">Cadastrar</button></a>
+            <a href="login.html"><button id="login" class="login">Login</button></a>
+        </div>
+        
+    </header>
+
+    <div class="conteudo">
+        <div class="descricao">
+            <img src="./assets/One_Piece_(ja)_Logo.svg.png" width="500px" alt="">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo illo vero velit, magnam, fugiat at molestiae eos aspernatur enim corporis iure reprehenderit atque laudantium accusamus quas nesciunt quibusdam mollitia voluptas?</p>
+        </div>
+        <div class="imagem-tripulacao">
+            <img src="./assets/tripulação2.png" alt="" width="500px">
+        </div>
+        
+        <div class="button-float"><p>Quiz</p></div>
+    </div>
+
+        <section class="como-surgiu">
+            <div class="texto">
+            <h1>Como Surgiu</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ad, magnam vero laborum accusamus odio cupiditate, dolorum nostrum doloremque architecto tempora amet perspiciatis inventore! Accusamus laboriosam veniam ullam ab illo fuga!
+                </p>    
+        </div>
+        <div class="img-sunny">
+            <img src="./assets/pngwing.com (1).png" alt="navio" width="500px">
+        </div>
+    </section>
+
+
+    
+    <section class="mundo">
+        <div class="container">
+            <div class="imagem">
+                <img src="./assets/manga.jpg" alt="" width="500px" height="380px">
+            </div>
+            <div class="texto">
+                <h1>Jornada</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis libero illo rem nobis, animi totam fugit tenetur est, commodi cumque adipisci corrupti quae, magnam nostrum accusantium enim! Nam, perferendis dignissimos? </p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                <button class="button-mundo">Saiba Mais</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="sobre">
+        <div class="container">
+            <div class="foto">
+                <img src="./assets/manu.jpg" alt="" width="380px">
+            </div>
+            
+            <div class="historia">
+                <h1>Sobre mim</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat fugit optio corporis alias vel mollitia temporibus blanditiis consequatur maiores! Deleniti perferendis tempora obcaecati ullam, sapiente laudantium a quis perspiciatis alias!</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="personagens">
+        <div class="azul"></div>
+        <div class="container">
+            
+            <div class="card">
+                <img src="./assets/𝙈𝙤𝙣𝙠𝙚𝙮 𝘿_ 𝙇𝙪𝙛𝙛𝙮.jpg" alt="" width="250px">
+                <h1>Monkey D.Luffy</h1>
+                <p>Capitão</p>
+                <div class="botao">
+                    <button>Saiba Mais</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/roronoa.jpg" alt="" width="260px">
+                <h1>Roronoa Zoro</h1>
+                <p>Espadashin</p>
+                <div class="botao">
+                    <button>Saiba Mais</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/sanji.jpg" alt="" width="250px">
+                <h1>Vismokign Sanji</h1>
+                <p>Cozinheiro</p>
+                <div class="botao">
+                    <button>Saiba Mais</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="./assets/robin.png" alt="" width="250px">
+                <h1>Robin</h1>
+                <p>Arqueologa</p>
+                <div class="botao">
+                    <button>Saiba Mais</button>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+
+    <section class="quiz">
+        <div class="container">
+            <h1>Descubra qual desses personagens você seria!</h1>
+            <button>Iniciar QUIZ</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dona Emanuelle Fernanda Trabalhos. Todos direitos reservado</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+<script>
+    function colorir1(){
+
+        nav.style.background = '#073e6f';
+        cadastrar.style.background = '#ffb700';
+        cadastrar.style.color = '#ffff'
+        login.style.background = '#ffb700';
+        login.style.color = '#ffff';
+    }
+    function colorir2(){
+        nav.style.background = '#ffb700';
+        cadastrar.style.background = '#982121';
+        cadastrar.style.color = '#ffff'
+        login.style.background = '#982121';
+        login.style.color = '#ffff';
+    }
+    function colorir3(){
+        nav.style.background = '#982121';
+        cadastrar.style.background = '#ffff';
+        cadastrar.style.color = 'black';
+        login.style.background = '#ffff';
+        login.style.color = 'black';
+    }
+</script>

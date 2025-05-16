@@ -1,0 +1,312 @@
+
+
+
+
+.conteudo{   
+    background:linear-gradient(rgba(0, 0, 0, 0.736), rgba(0, 0, 0, 0.818)), url(../assets/fundo-onepiece3.jpg);
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    height: 690px;
+    justify-content: space-between;
+    padding-top: 35px;
+    padding-bottom: 50px;
+}
+
+.imagem-tripulacao{
+    
+    background-color: rgba(245, 245, 245, 0.688);
+    padding-right: 80px;
+    border-radius:50% 0 0 50% ;
+    display: flex;
+    align-items: center;
+}
+
+.imagem-tripulacao img{
+    padding-left: 50px;
+    
+}
+
+.descricao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 100px;
+}
+
+.descricao p{
+    color: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    line-height: 30px;
+    width: 620px;
+}
+
+
+
+
+
+
+.como-surgiu{
+    display: flex;
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    gap: 90px;
+}
+
+.como-surgiu .texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 100px;
+
+    width: 700px;  
+}
+
+.como-surgiu h1{
+    border-bottom: rgb(178, 14, 14) solid  10px  ;
+    padding-bottom: 20px;
+    width: 500px;
+    margin: 0; 
+    font-size: 45px;
+}
+
+.como-surgiu p{
+    
+    margin-top: 50px;
+    font-size: 25px;
+    line-height: 35px;
+}
+.img-sunny{
+    
+    padding-top: 50px;
+    
+}
+
+
+
+
+
+
+.mundo{
+    background:linear-gradient(rgba(0, 0, 0, 0.792)), url(../assets/fundo2.jpg);
+    height: 700px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.227);
+
+}
+.mundo .container{
+    display:flex;
+    background-color: #ffffff;
+    border-radius: 10px;
+    gap: 30px;
+    box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.227);
+}
+.mundo h1{
+    margin: 0;
+    width: 400px;
+    margin: 0; 
+    font-size: 45px;
+    padding-bottom: 15px;
+}
+
+.mundo .container .imagem {
+    padding: 30px;
+    margin-left: 20px;
+}
+
+.mundo .container .imagem img{
+    border-radius: 10px;
+    /*box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.227);*/
+    
+}
+
+.mundo .container .texto{
+    padding-top: 50px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    line-height: 23px;
+    justify-content: center;
+}
+
+.mundo .container .texto p{
+    font-size: 25px;
+    line-height: 35px;
+    width: 650px;
+}
+.mundo button{
+    background-color: #0088ff;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 45px;
+    margin-top: 20px;
+    color: #ffffff;
+}
+
+
+
+
+.sobre{
+    box-shadow: 1px 2px 10px 2px rgba(199, 199, 199, 0.156);
+    background-color: #ffffff;
+    height: 680px;
+
+}
+.sobre .container{
+    display: flex;
+    gap: 20px;
+    background-color: #15335f;
+}
+.sobre .container .foto{
+    background-color: #15335f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 680px;
+    padding-left: 150px;
+    padding-right: 10px;
+
+}
+.sobre .container .foto img{
+    border: #ffffff solid 10px;
+}
+
+.sobre .container .historia{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 600px;
+    padding-left: 90px;
+}
+.sobre .container .historia h1{
+    font-size: 45px;
+    border-bottom: #ffb700 solid 10px;
+    padding-bottom: 20px;
+    margin: 0;
+    color: #ffffff;
+    width: 500px;
+}
+.sobre .container .historia p{
+    color: #ffffff;
+    line-height: 35px;
+    padding-top: 20px;
+    font-size: 25px;
+}
+
+
+
+.personagens .container{
+    height: 700px;
+    /* background: url(../assets/onda.svg); */
+    background-repeat: no-repeat;
+    background-size: cover; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+}
+.personagens .container .card{
+    background-color: #ffffff;
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.227);
+}
+.personagens .container .card img{
+    border-radius: 10px;
+}
+.personagens .container .card button:hover{
+    background-color: #00203b;
+    cursor: pointer
+}
+.personagens .card h1{
+    margin: 0;
+    padding-top: 20px;
+}
+.personagens .card p{
+    margin: 0;
+    padding-top: 5px;
+}
+.personagens .container .card button{
+    background-color: #0088ff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 11px;
+    padding-bottom: 12px;
+    align-items: center;
+    font-size: 18px;
+}
+
+.personagens .container .card .botao{
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+.personagens .azul{
+    z-index: -1;
+    position: absolute;
+    height: 100px;
+    padding-left: 100%;
+    padding-top: 10%;
+    padding-bottom: 50px;
+}
+
+
+
+
+
+.quiz{
+    background:linear-gradient(rgba(0, 0, 0, 0.767), rgba(0, 0, 0, 0.849))  , url(../assets/onepiece.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    height: 600px;
+}
+.quiz .container{
+    padding: 100px;
+}
+.quiz .container h1{
+    color: white;
+    font-size: 65px;
+    width: 800px;
+}
+
+.quiz .container button{
+    background-color: #b12222;
+    border: none;
+    color: #ffffff;
+    padding-left: 30px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    
+}
+
+
+
+
+footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+}
+
+#nav{
+    transition: 0.5s;
+}
+

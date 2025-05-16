@@ -1,0 +1,18 @@
+.luffy{
+    background-color: rgb(5, 6, 67);
+    color: aliceblue;
+    padding-top: 130px;
+    padding-bottom: 40px;
+}
+
+.luffy .container{
+    display: flex;
+}
+
+.luffy .container .imagem{
+    padding-left: 100px;
+}
+
+.zoro{
+    background-color: rgb(37, 74, 38);
+}
