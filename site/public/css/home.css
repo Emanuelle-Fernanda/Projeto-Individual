@@ -44,6 +44,20 @@
 
 
 
+.frase .container{
+    padding: 20px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00203b;
+}
+
+.frase .container p i{
+    font-size: 18px;
+    color: #0088ff;
+    font-weight: 500;
+}
+
 
 
 
@@ -79,7 +93,7 @@
 }
 .img-sunny{
     
-    padding-top: 50px;
+    padding-top: 40px;
     
 }
 
@@ -175,6 +189,7 @@
 }
 .sobre .container .foto img{
     border: #ffffff solid 10px;
+    border-radius: 50%;
 }
 
 .sobre .container .historia{
@@ -196,6 +211,7 @@
     color: #ffffff;
     line-height: 35px;
     padding-top: 20px;
+    width: 800px;
     font-size: 25px;
 }
 

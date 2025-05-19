@@ -23,18 +23,34 @@
             <img src="./assets/logo.png" alt="" width="110px">
             <h1>Cadastre-se</h1>
             <p>Nome</p>
-            <input type="text" placeholder="Emanuelle Fernanda">
+            <input id="input_nome" type="text" placeholder="Emanuelle Fernanda">
             <p>Email</p>
-            <input type="text" placeholder="fulano@gmail.com">
+            <input id="input_email" type="text" placeholder="fulano@gmail.com">
             <p>Senha</p>
-            <input type="text" placeholder="******">
+            <input id="input_senha" type="text" placeholder="******">
             <p>Confirmar Senha</p>
-            <input type="text" placeholder="******">
-            <button>Cadastrar</button>
-            </div>
-
+            <input id="input_confSenha" type="text" placeholder="******">
+            <div id="mensagem"></div>
+            <button onclick="cadastrar()">Cadastrar</button>
             
+            </div>
         </div>
     </div>
 </body>
 </html>
+<script>
+    function cadastrar(){
+        var nome = input_nome.value;
+        var email = input_email.value;
+        var senha = input_senha.value;
+        var  confSenha = input_confSenha.value;
+        
+
+        if(nome == '' ||email == ''|| senha == '' || confSenha == ''){
+            alert(`Preencha todos os campos`);
+        } 
+        else if(!email.includes('@')){
+            alert('Preencha um email valido!');
+        }
+    }
+</script>
