@@ -259,19 +259,12 @@
         document.querySelector("#resultado p").innerText = "Você é o sanji! Rei dos Piratas, faminto por liberdade e carne!";
     }
 
-    guardar()
+    guardar(personagem)
 
   }
 
-  const respostasSelecionadas = [];
-
   function responder(resposta) {
     console.log(resposta);    
-
-    respostasSelecionadas.push({
-    pergunta: numeroQuestao + 1, 
-    letra: resposta
-  });
 
 
     if (resposta == 'A') {
@@ -294,7 +287,7 @@
     exibirQuestao();
   }
 
-  function guardar() {
+  function guardar(personagemRecebido) {
 
     fetch("/quiz/guardar", {
       method: "POST",
@@ -302,8 +295,8 @@
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-      fkUsuario: sessionStorage.ID_USUARIO,
-      fkAlternativa: respostasSelecionadas
+      idUsuario: sessionStorage.ID_USUARIO,
+      personagem: personagemRecebido
       }),
     })
       .then(function (resposta) {
@@ -312,7 +305,10 @@
         if (resposta.ok) {
           alert(
             "Resposta inserida"
+    
           );
+          //guardando a resposta do personagem
+          sessionStorage.setItem('PERSONAGEM', JSON.stringify(resposta))
         } else {
           throw "Houve um erro ao inserir a resposta";
         }

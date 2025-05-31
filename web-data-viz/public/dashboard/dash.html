@@ -8,7 +8,7 @@
 
      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
-  <body>
+  <body onload="dadosDash()">
     <div class="dashboard">
       <nav class="nav-left" id="dash">
         <div class="container-left">
@@ -77,8 +77,6 @@
               <p class="quantidade" id="qunatidadePersonagem">10</p>
             </div>
 
-            
-
             <div class="kpi1">
               <p>Pessoas de <b>mesmo personagem</b></p>
               <p class="quantidade" id="qunatidadePersonagem">20</p>
@@ -121,4 +119,46 @@
   function quiz(){
     window.location = "./quiz.html"
   }
+
+  function dadosDash() {
+
+    fetch("/dashboard/buscarDados", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      idUsuarioServer: sessionStorage.ID_USUARIO
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          //guardando a resposta do personagem
+          resposta.json().then(function(respostadados){
+            sessionStorage.setItem('DADOS_DASHBOARD', JSON.stringify(respostadados.dadosDash))
+          })
+          
+        } else {
+          throw "Houve um erro ao inserir a resposta";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+</script>
+
+<!-- 
+    1- coletar o resultado ao finalizar(view)
+    2 - fetch() enviando os dados necessarios para realizar o cadastro de quiz(view)
+    3 - 'quizController.guardar' manejar a função controller para inserir o quiz resultado no banco(controller)
+    4 - quizModel.guardar manejar a funçaõ que comunica com o banco para inserir os dados no mysql (model)
+    5 - ação pos requisição (view)
+-->
+
+
 </script>

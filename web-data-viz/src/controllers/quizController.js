@@ -1,25 +1,25 @@
 var quizModel = require("../models/quizModel");
 
 function guardar(req, res) {
-    var fkUsuario = req.body.fkUsuario;
-    var fkAlternativa = req.body.fkAlternativa;
+    var idUsuario = req.body.idUsuario;
+    var personagem = req.body.personagem;
 
-    console.log("fkUsuario:", fkUsuario);
-    console.log("respostasSelecionadas:", fkAlternativa);
-    
-    if (!Array.isArray(fkAlternativa)) {
-        fkAlternativa = [fkAlternativa];
-    }
+    quizModel.registrarQuiz()
+        .then(function(resultadoQuiz){
+            var idQuiz = resultadoQuiz.insertId
 
-    quizModel.guardar(fkUsuario, fkAlternativa )
-        .then(function (resposta) {
-            res.json(resposta);
+            quizModel.guardar(idUsuario, idQuiz, personagem)
+                .then(function (resposta) {
+                    res.json(resposta);
+                })
+                .catch(function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao salvar! erro:", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                });
         })
-        .catch(function (erro) {
-            console.log(erro);
-            console.log("\nHouve um erro ao salvar! erro:", erro.sqlMessage);
-            res.status(500).json(erro.sqlMessage);
-        });
+
+    
 }
 
 module.exports = {
