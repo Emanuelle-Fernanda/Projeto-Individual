@@ -1,0 +1,235 @@
+body{
+    margin: 0;
+    font-family: arial;
+}
+
+
+.dashboard{
+    display: flex;
+    width: 100%;
+}
+
+.dashboard nav{
+    
+    display: flex;
+    width: 17%;
+    height: 100vh;
+    background-color:#041548;
+}
+.dashboard .container-left{
+    margin-left: 17%;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+.dashboard .container-left h3{
+    margin-top: 50px;
+    font-size: 18px;
+}
+.dashboard .container-left p{
+    margin-top: 0;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+.dashboard .container-left button{
+    margin-top: 15px;
+    background-color: #2e6dff;
+    border-radius: 5px;
+    border: none;
+    width: 110%;
+    height: 45px;
+    color: white;
+    font-size: 16px;
+}
+
+
+
+header{
+    
+    display: flex;
+    align-items: center;
+    background-color: rgb(30, 30, 78);
+    border-left: solid rgba(255, 255, 255, 0.866) 1px;
+    padding-left: 20px;
+    color: rgb(0, 0, 0);
+    height: 70px ;
+    justify-content: space-between;
+    width: 99.95%;
+    box-shadow:20px 2px 20px rgba(0, 0, 0, 0.527);
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+}
+
+.navbar u{
+    display: flex;
+    text-decoration: none;
+
+}
+
+.navbar a {
+    text-decoration:none;
+    color: rgb(255, 255, 255);
+}
+
+.navbar li{
+    padding: 20px;
+    font-weight: 500;
+    list-style: none;
+}
+.navbar li:hover{
+    background-color: #faf9f781;
+}
+
+#home{
+    font-weight: 700;
+}
+
+header button{
+    font-weight: 500;
+    color: aliceblue;
+    background-color: rgb(30, 101, 255);
+    padding: 8px;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    margin-right: 30px; /* Espaço entre os botões */
+    cursor: pointer;
+}
+
+#b1{
+    border-radius: 50%;
+    width: 10px;
+    padding: 15px;
+    background-color: #073e6f;
+    border: #ffffff solid 2px;
+    transition: 0,3s;
+}
+#b2{
+    border-radius: 50%;
+    width: 10px;
+    padding: 15px;
+    border: #ffffff solid 2px;
+}
+#b3{
+    border-radius: 50%;
+    width: 10px;
+    padding: 15px;
+    background-color: #982121;
+    border: #ffffff solid 2px;
+}
+
+.cadastro{
+    margin-right: 180px;
+}
+.login{
+    margin-right: 40px;
+}
+
+.button-float{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    margin-left: 92%;
+    margin-top: 35%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.227);
+}
+
+.button-float p{
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+.button-float:hover{
+    background-color: aliceblue;
+    color: black;
+
+}
+
+
+
+.txt{
+    width: 820px;
+    font-size: 17px;
+    line-height: 1.6;
+    margin-left: 90px;
+    margin-bottom: 18px;
+}
+
+
+
+
+.sectionDash{
+    width: 81.7%;
+}
+
+.sectionDash .resultados{
+    margin: 30px;
+    height: 550px;
+}
+.sectionDash .resultados .card1{
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow:0px 2px 20px rgba(0, 0, 0, 0.312);
+    background:linear-gradient(rgba(64, 124, 164, 0.821), rgba(0, 0, 0, 0.998))  ,url(../assets/download\ \(6\).jpg);
+    
+    color: #ffffff;
+}
+
+.sectionDash .resultados .card1 img{
+    padding-top: 20px;
+    margin-left: 80px;
+}
+
+.resultados .kpis{
+    display: flex;
+    gap: 3%;
+    margin-top: 20px;
+    
+}
+
+.resultados .kpis .kpi1{
+    box-shadow:0px 2px 20px rgba(0, 0, 0, 0.312);
+    padding-top: 10px;
+    border-radius: 5px;
+    height: 180px;
+    padding-bottom: 80px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    border-radius: 5px;
+}
+.quantidade{
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 45px;
+}
+
+#graficoCaracteristicas{
+    transform: scale(1.0);
+}
+
+#sair{
+    margin-top: 220px;
+    background-color: #d31616;
+}
+

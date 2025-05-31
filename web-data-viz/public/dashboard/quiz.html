@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/quiz.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="quiz-personalidade">
+      <button id="btnIniciarQuiz" onclick="iniciar()">Iniciar QUIZ</button>
+
+      <div id="jogo" style="display: none">
+        <h1>Qual Personagem Você Seria?</h1>
+
+        <div class="quiz">
+          <p id="perguntaQ">One quest pergunta</p>
+          <button id="1" onclick="responder('A')" class="bntAlternativa">alternativaA</button>
+          <button id="2" onclick="responder('B')" class="bntAlternativa">alternativaB</button>
+          <button id="3" onclick="responder('C')" class="bntAlternativa">alternativaC</button>
+          <button id="4" onclick="responder('D')" class="bntAlternativa">alternativaD</button>
+          <button id="5" onclick="responder('E')" class="bntAlternativa">alternativaE</button>
+
+          <div class="botoes">
+            <button style="display: none" id="btVoltar" onclick="voltar()">
+              <i class="fa-solid fa-arrow-left"></i> voltar
+            </button>
+            <button
+              style="display: none"
+              id="btFinalizar"
+              onclick="finalizar()"
+            >
+              Finalizar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="resultado" class="resultados" style="display: none">
+        <h1>Personagem</h1>
+        <img id="imagemQuiz" src="../assets/sanji.jpg" alt="" width="250px" />
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+          fugit nisi. Aspernatur consequuntur molestiae aliquam, maxime
+          assumenda voluptatem non aut earum minima asperiores qui, accusantium
+          culpa soluta ducimus perspiciatis deserunt.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const perguntasQuiz = [
+    {
+      pergunta: "Qual desses lugares você mais curtiria viver?",
+      alternativaA: "Um navio cheio de amigos",
+      alternativaB: "Uma biblioteca gigante",
+      alternativaC: "Um castelo misterioso",
+      alternativaD: "Um laboratório tecnológico",
+      alternativaE: "Um bar cheio de música",
+    },
+    {
+      pergunta: "Qual seu papel ideal em uma equipe?",
+      alternativaA: "Líder",
+      alternativaB: "Estrategista",
+      alternativaC: "Guerreiro(a)",
+      alternativaD: "Médico(a)",
+      alternativaE: "Navegador(a)",
+    },
+    {
+      pergunta: "Escolha um lema de vida:",
+      alternativaA: "Eu nunca vou desistir dos meus sonhos",
+      alternativaB: "A lógica sempre vence",
+      alternativaC: "Proteger quem eu amo vem antes de tudo",
+      alternativaD: "A vida é uma festa, vamos curtir!",
+      alternativaE: "Silencio também é força",
+    },
+    {
+      pergunta: "Se tivesse uma Akuma no Mi, qual tipo escolheria?",
+      alternativaA: "Paramecia",
+      alternativaB: "Zoan (transformação tipo Chopper)",
+      alternativaC: "Logia (elementos tipo Ace ou Enel)",
+      alternativaD: "Nenhuma, prefiro confiar nas minhas mãos",
+      alternativaE: "Não sei... queria ser imprevisível",
+    },
+    {
+      pergunta: "O que você valoriza mais?",
+      alternativaA: "Liberdade",
+      alternativaB: "Conhecimento",
+      alternativaC: "Amizade",
+      alternativaD: "Justiça",
+      alternativaE: "Diversão",
+    },
+    {
+      pergunta: "Em uma missão difícil, qual sua maior força?",
+      alternativaA: "Determinação",
+      alternativaB: "Inteligência",
+      alternativaC: "Carisma",
+      alternativaD: "Coragem",
+      alternativaE: "Criatividade",
+    },
+    {
+      pergunta: "Se você fosse um pirata, qual seria sua recompensa?",
+      alternativaA: "1 bilhão — sou temido(a)",
+      alternativaB: "500 milhões — respeitado(a) mas na moral",
+      alternativaC: "200 milhões — sou firmeza, mas discreto(a)",
+      alternativaD: "100 mil — sou novo(a) ainda, calma lá",
+      alternativaE: "Recompensa NEGATIVA — me amam em todo lugar",
+    },
+    {
+      pergunta: "Como você age quando alguém te provoca?",
+      alternativaA: "Pulo na briga sem pensar",
+      alternativaB: "Rio e sigo minha vida",
+      alternativaC:
+        "Reclamo, dramatizo, mas é porque me importo com a situação",
+      alternativaD: "Tento resolver na conversa, com calma e argumentos",
+      alternativaE: "Finjo que não me importo, mas aquilo me corrói por dentro",
+    },
+    {
+      pergunta: "O que mais te irrita nas pessoas?",
+      alternativaA: "Covardia — fugir quando a coisa aperta",
+      alternativaB: "Falsidade — fala uma coisa, faz outra",
+      alternativaC: "Falta de lógica — agir sem pensar",
+      alternativaD: "Falta de respeito — desconsiderar os outros",
+      alternativaE: "Me ignorarem — como se eu não existisse",
+    },
+    {
+      pergunta: "Quando você conhece alguém novo, você…",
+      alternativaA: "Já fala tudo sobre mim, sem filtro",
+      alternativaB: "Fico de olho e só me abro se confiar",
+      alternativaC: "analiso a pessoa antes de me envolver",
+      alternativaD: "Fico meio travado, mas tento ser simpático",
+      alternativaE: "Tento deixar a pessoa confortável",
+    },
+  ];
+
+  const ponto1 = [];
+  const ponto2 = [];
+  const ponto3 = [];
+  const ponto4 = [];
+  const ponto5 = [];
+  const lista_resposta = [];
+  let personagem = '';
+
+  
+
+  function iniciar() {
+    //ao clicar no botão ele some com o display none
+    document.getElementById("btVoltar").style.display = "none";
+    document.getElementById("btnIniciarQuiz").style.display = "none";
+    document.getElementById("jogo").style.display = "block";
+
+    //criando função
+    exibirQuestao();
+  }
+
+  //variavel que guarda o numero da questão
+  let numeroQuestao = -1;
+
+  //função que exibe o quiz
+  function exibirQuestao() {
+    numeroQuestao += 1;
+
+    let questaoAtual = perguntasQuiz[numeroQuestao];
+
+    perguntaQ.innerHTML = numeroQuestao + 1 + "." + questaoAtual.pergunta;
+
+    document.getElementById(1).innerHTML = questaoAtual.alternativaA;
+    document.getElementById(2).innerHTML = questaoAtual.alternativaB;
+    document.getElementById(3).innerHTML = questaoAtual.alternativaC;
+    document.getElementById(4).innerHTML = questaoAtual.alternativaD;
+    document.getElementById(5).innerHTML = questaoAtual.alternativaE;
+
+    //exibe o botão de voltar, para voltar para questão anterior
+    if (numeroQuestao > 0) {
+      document.getElementById("btVoltar").style.display = "block";
+    } else {
+      document.getElementById("btVoltar").style.display = "none";
+    }
+
+    //exibe botão finalizar no quiz ao chegar na 10º pergunta
+    if (numeroQuestao == 9) {
+      document.getElementById("btFinalizar").style.display = "block";
+    } else {
+      document.getElementById("btFinalizar").style.display = "none";
+    }
+    
+
+  }
+
+  function voltar() {
+    numeroQuestao -= 1;
+    if (numeroQuestao > 0) {
+      document.getElementById("btVoltar").style.display = "block";
+    } else {
+      document.getElementById("btVoltar").style.display = "none";
+    }
+
+    let questaoAtual = perguntasQuiz[numeroQuestao];
+    perguntaQ.innerHTML = numeroQuestao + 1 + "." + questaoAtual.pergunta;
+
+    document.getElementById("1").innerHTML = questaoAtual.alternativaA;
+    document.getElementById("2").innerHTML = questaoAtual.alternativaB;
+    document.getElementById("3").innerHTML = questaoAtual.alternativaC;
+    document.getElementById("4").innerHTML = questaoAtual.alternativaD;
+    document.getElementById("5").innerHTML = questaoAtual.alternativaE;
+  }
+
+  function finalizar() {
+    document.getElementById("jogo").style.display = "none";
+    document.getElementById("resultado").style.display = "block";
+
+    //armazenando todas as respostas do usuario
+    lista_resposta.push(ponto1, ponto2, ponto3, ponto4, ponto5);
+
+    if(
+        ponto1.length > ponto2.length
+        && ponto1.length > ponto3.length
+        && ponto1.length > ponto4.length
+        && ponto1.length > ponto5.length
+    ){
+        personagem = 'Luffy'
+        document.getElementById("imagemQuiz").src = "../assets/luffy.png";
+        document.querySelector("#resultado p").innerText = "Você é o Luffy! Rei dos Piratas, faminto por liberdade e carne!";
+    }else if(ponto2.length > ponto1.length
+        && ponto2.length > ponto3.length
+        && ponto2.length > ponto4.length
+        && ponto2.length > ponto5.length){
+        
+        personagem = 'Robin';
+        document.getElementById("imagemQuiz").src = "../assets/robin.png";
+        document.querySelector("#resultado p").innerText = "Você é o Zoro! Fiel e leal, que coloca suas amizades acima de tudo";
+    }else if(ponto3.length > ponto1.length
+        && ponto3.length > ponto2.length
+        && ponto3.length > ponto4.length
+        && ponto3.length > ponto5.length){
+        personagem = 'Zoro';
+        document.getElementById("imagemQuiz").src = "../assets/zoro.jpg";
+        document.querySelector("#resultado p").innerText = "Você é o Luffy! Rei dos Piratas, faminto por liberdade e carne!";
+    }else if(ponto4.length > ponto1.length
+        && ponto4.length > ponto2.length
+        && ponto4.length > ponto3.length
+        && ponto4.length > ponto5.length){
+        personagem = 'Chopper';
+        document.getElementById("imagemQuiz").src = "../assets/chopper.jpg";
+        document.querySelector("#resultado p").innerText = "Você é o chopper! Rei dos Piratas, faminto por liberdade e carne!";
+    }else if(ponto5.length > ponto1.length
+        && ponto5.length > ponto2.length
+        && ponto5.length > ponto3.length
+        && ponto5.length > ponto4.length){
+        personagem = 'Sanji';
+        document.getElementById("imagemQuiz").src = "../assets/sanji.jpg";
+        document.querySelector("#resultado p").innerText = "Você é o sanji! Rei dos Piratas, faminto por liberdade e carne!";
+    }
+
+    guardar()
+
+  }
+
+  const respostasSelecionadas = [];
+
+  function responder(resposta) {
+    console.log(resposta);    
+
+    respostasSelecionadas.push({
+    pergunta: numeroQuestao + 1, 
+    letra: resposta
+  });
+
+
+    if (resposta == 'A') {
+      console.log('vetor A');
+      ponto1.push(resposta);
+    } else if (resposta == 'B') {
+      console.log('vetor B');
+      ponto2.push(resposta);
+    } else if (resposta == 'C') {
+      console.log('vetor C');
+      ponto3.push(resposta);
+    } else if (resposta == 'D') {
+      console.log('vetor D');
+      ponto4.push(resposta);
+    } else {
+      console.log('vetor E');
+      ponto5.push(resposta);
+    }
+
+    exibirQuestao();
+  }
+
+  function guardar() {
+
+    fetch("/quiz/guardar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      fkUsuario: sessionStorage.ID_USUARIO,
+      fkAlternativa: respostasSelecionadas
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          alert(
+            "Resposta inserida"
+          );
+        } else {
+          throw "Houve um erro ao inserir a resposta";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+</script>
+
+<!-- 
+    1- coletar o resultado ao finalizar(view)
+    2 - fetch() enviando os dados necessarios para realizar o cadastro de quiz(view)
+    3 - 'quizController.guardar' manejar a função controller para inserir o quiz resultado no banco(controller)
+    4 - quizModel.guardar manejar a funçaõ que comunica com o banco para inserir os dados no mysql (model)
+    5 - ação pos requisição (view)
+-->
+

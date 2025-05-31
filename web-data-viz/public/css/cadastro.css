@@ -1,0 +1,128 @@
+body{
+    padding: 50px;
+    background:linear-gradient(rgba(0, 0, 0, 0.684)) ,url(../assets/manga.jpg);
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    justify-content: center;
+    justify-items: center;
+}
+
+.cadastro{
+    margin-top: 20px;
+    display: flex;
+}
+
+.cadastro .container{
+    flex: 1 ;
+    box-shadow: 8px 2px 25px 20px rgba(0, 0, 0, 0.11);
+    padding: 0;
+    display: flex;
+    border-radius: 85px;
+}
+
+.cadastro .container img{
+    margin: 0;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+
+.cadastro .form{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 120px;
+    padding-right: 120px;
+    background-color: rgb(30, 30, 78);
+    padding-top: 50px;
+    padding-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1{
+    color: rgb(255, 255, 255);  
+}
+
+p{
+    color: #ffff;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border: none;
+}
+button{
+    margin-left: 75px;
+    margin-top: 30px;
+    background-color: rgb(255, 175, 47);
+    height: 40px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    color: #ffff;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
+#button-float{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0, 123, 255);
+    z-index: 2;
+    position: absolute;
+    margin: 25px;
+    border-radius: 50%;
+    padding: 20px;
+    color: #ffff;
+    
+}
+
+
+.loading-div {
+  width: 50px;
+  display: none;
+}
+
+.loading-div img {
+  height: 50px;
+  width: 50px;
+}
+
+#div_erros_login {
+  display: none
+}
+
+/* FORMULARIO */
+
+.alerta_erro{
+  display: flex;
+  z-index: 2;
+}
+
+.card_erro {
+  display: none;
+  background-color: #b6df9f;
+  color: black;
+  width: 230px;
+  position: absolute;
+  border-radius: 4px;
+  border: #e9f6e7 3px solid;
+  padding: 10px;
+  margin-right : 10%;
+}
+
+.card_erro #mensagem_erro{
+  font-weight: 500;
+  font-size: 20px;
+}

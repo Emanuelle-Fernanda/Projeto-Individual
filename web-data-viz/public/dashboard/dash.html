@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/dash.css" />
+    <title>Dashboard One Piece</title>
+
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="dashboard">
+      <nav class="nav-left" id="dash">
+        <div class="container-left">
+          <img src="../assets/logo.png" alt="" width="160px" />
+          <h3>Seja Bem Vindo</h3>
+          <p id="user">Usuario</p>
+          <button>Personagem</button>
+          <button onclick="quiz()">Quiz
+
+          </button >
+          <button id="sair" onclick="sair()">Sair</button>
+        </div>
+      </nav>
+
+      <div class="sectionDash">
+        <header id="nav">
+          <div class="navbar">
+            <u>
+              <a href="../index.html"><li>Home</li></a>
+              <a href="personagens.html"><li>Personagens</li></a>
+              <a href="quiz"><li>Anime</li></a>
+              <a href="quiz"><li>Ilhas</li></a>
+            </u>
+          </div>
+          <!--<div class="color">
+            <button id="b1" onclick="colorir1()"></button>
+            <button id="b2" onclick="colorir2()"></button>
+            <button id="b3" onclick="colorir3()"></button>
+          </div>-->
+          <div class="button">
+            <a href="cadastro.html">
+              <button id="cadastrar" class="Cadastrar">Cadastrar</button>
+            </a>
+          </div>
+        </header>
+
+        <div class="resultados">
+          <div class="cards">
+            <div class="card1">
+              <img
+                src="../assets/luffypng-removebg-preview.png"
+                alt="imagem luffy"
+                width="123px"
+              />
+              <div class="txt">
+                <h1>Resultado: Monkey D.Luffy!</h1>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Reprehenderit nostrum autem vero nihil amet deserunt,
+                  voluptates illo soluta odio dolorem veritatis nesciunt
+                  repellat excepturi similique magni assumenda beatae
+                  repudiandae doloremque!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi1">
+              <p>Caracteristicas predominantes</p>
+              <canvas id="graficoCaracteristicas"> </canvas>
+            </div>
+
+            <div class="kpi1">
+              <p>Pessoas de <b>mesmo personagem</b></p>
+              <p class="quantidade" id="qunatidadePersonagem">10</p>
+            </div>
+
+            
+
+            <div class="kpi1">
+              <p>Pessoas de <b>mesmo personagem</b></p>
+              <p class="quantidade" id="qunatidadePersonagem">20</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+
+  user.innerHTML = sessionStorage.NOME_USUARIO;
+
+ const ctx = document.getElementById('graficoCaracteristicas').getContext('2d');
+  const data = {
+    datasets: [{
+      label: 'My First Dataset',
+      data: [15, 40, 20,10, 25],
+      backgroundColor: [
+        '#f3dd05  ',
+        '#e67e22 ',
+        '#0080ff',
+        '#229954',
+        '#f30580'
+      ],
+      hoverOffset: 4
+    }]
+    
+  };
+
+  const config = {
+    type: 'doughnut',
+    data: data,
+  };
+
+  new Chart(ctx, config);
+
+  function quiz(){
+    window.location = "./quiz.html"
+  }
+</script>

@@ -1,0 +1,154 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica;
+}
+.quiz-personalidade{
+    background:linear-gradient(rgba(0, 0, 0, 0.736)) ,url(../assets/manga.jpg) no-repeat;
+    background: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#btnIniciarQuiz{
+    background-color: rgb(255, 194, 28);
+    border: none;
+    color: white;
+    width: 250px;
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 10px;
+    height: 80px;
+    cursor: pointer;
+    transition: 0,8s;
+    
+}
+
+#jogo{
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.492);
+    padding-top: 30px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+h1{
+    color: rgb(0, 0, 0);
+    margin-bottom: 40px;
+    width: 380px;
+    font-weight: 800;
+}
+
+
+/*dentro do jogo*/
+.quiz{
+    background-color: rgb(16, 16, 75);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+P{
+    color: white;
+}
+
+#pergunta{
+    margin-bottom: 28px;
+    margin-top: 30px;
+    color: white;
+}
+
+.bntAlternativa{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 0;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+    border: solid rgb(115, 115, 115) 1px;
+    background-color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.bntAlternativa:hover{
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+#btVoltar{
+    background-color: blue;
+    color: white;
+    border: none;
+    width: 100px;
+    border-radius:5px ;
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#btFinalizar{
+    background-color: rgb(255, 191, 0);
+    color: rgb(255, 255, 255);
+    border: none;
+    width: 100px;
+    font-weight: 500;
+    border-radius:5px ;
+    height: 40px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#btFinalizar:hover{
+    background-color: #fff;
+    color: black;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#resultado {
+    background-color: rgba(23, 50, 223, 0.936);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    width: 300px;
+    color: #fff;
+    padding: 80px;
+    border-radius: 20px;
+    animation: aparecer 1s ease-in-out;
+}
+
+
+
+#resultado h1{
+    text-align: center;
+    color: #ffff;
+
+}
+
+#resultado img {
+    border-radius: 15px;
+    border: solid 5px white;
+    box-shadow: 0 0 20px rgba(200, 195, 195, 0.3);
+}
+
+
+@keyframes aparecer {
+    from {
+        transform: scale(0.95);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
