@@ -8,11 +8,11 @@ function dadosDash(idUsuario) {
    
     const instrucaoSql = `SELECT 
   (SELECT COUNT(DISTINCT idUsuario) FROM resultado) AS totalUsuariosResponderam,
-  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Luffy') AS qtdLuffy,
-  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Zoro') AS qtdZoro,
-  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Robin') AS qtdRobin,
-  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Sanji') AS qtdSanji,
-  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Chopper') AS qtdChopper,
+  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Luffy') AS Luffy,
+  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Zoro') AS Zoro,
+  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Robin') AS Robin,
+  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Sanji') AS Sanji,
+  (SELECT COUNT(*) FROM resultado WHERE nomePersonagem = 'Chopper') AS Chopper,
   (SELECT nomePersonagem FROM resultado WHERE idUsuario = ${idUsuario} ORDER BY idResultado DESC LIMIT 1 ) AS personagemUsuario1;
 `;
 

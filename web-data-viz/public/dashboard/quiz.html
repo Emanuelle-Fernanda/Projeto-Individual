@@ -42,7 +42,7 @@
       </div>
 
       <div id="resultado" class="resultados" style="display: none">
-        <h1>Personagem</h1>
+        <h1 id="nomePersonagem">Personagem</h1>
         <img id="imagemQuiz" src="../assets/sanji.jpg" alt="" width="250px" />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
@@ -50,6 +50,7 @@
           assumenda voluptatem non aut earum minima asperiores qui, accusantium
           culpa soluta ducimus perspiciatis deserunt.
         </p>
+        <button id='voltar_dash' onclick="window.location.href = 'dash.html'">Voltar Dashboard</button>
       </div>
     </div>
   </body>
@@ -226,37 +227,42 @@
         && ponto1.length > ponto5.length
     ){
         personagem = 'Luffy'
-        document.getElementById("imagemQuiz").src = "../assets/luffy.png";
-        document.querySelector("#resultado p").innerText = "Você é o Luffy! Rei dos Piratas, faminto por liberdade e carne!";
+        document.getElementById("nomePersonagem").innerText = 'Monkey D.Luffy'
+        document.getElementById("imagemQuiz").src = "../assets/luffylindo.jpg";
+        document.querySelector("#resultado p").innerText = "Ele é caracterizado pela sua natureza despreocupada, otimista e aventureira. Ele é um personagem alegre, com um grande apetite e que não se preocupa muito com as consequências de suas ações, mas que se esforça para cumprir seus objetivos e proteger seus amigos. ";
     }else if(ponto2.length > ponto1.length
         && ponto2.length > ponto3.length
         && ponto2.length > ponto4.length
         && ponto2.length > ponto5.length){
         
         personagem = 'Robin';
+        document.getElementById("nomePersonagem").innerText = 'Nico Robin'
         document.getElementById("imagemQuiz").src = "../assets/robin.png";
-        document.querySelector("#resultado p").innerText = "Você é o Zoro! Fiel e leal, que coloca suas amizades acima de tudo";
+        document.querySelector("#resultado p").innerText = "Nico Robin é caracterizada pela sua calma, paciência e inteligência, sendo uma das personagens mais racionais da tripulação. Ela é reservada e gosta de ler e estudar. ";
     }else if(ponto3.length > ponto1.length
         && ponto3.length > ponto2.length
         && ponto3.length > ponto4.length
         && ponto3.length > ponto5.length){
         personagem = 'Zoro';
-        document.getElementById("imagemQuiz").src = "../assets/zoro.jpg";
-        document.querySelector("#resultado p").innerText = "Você é o Luffy! Rei dos Piratas, faminto por liberdade e carne!";
+        document.getElementById("nomePersonagem").innerHTML = 'Roronoa Zoro';
+        document.getElementById("imagemQuiz").src = "../assets/zoro.jpg";  
+        document.querySelector("#resultado p").innerText = "Roronoa Zoro é caracterizado por ser reservado, sério e com poucas palavras, preferindo agir em vez de falar. Ele é leal, honesto e possui um forte senso de honra. Apesar de sua postura séria, Zoro também pode ser impulsivo e, por vezes, demonstrar um lado cômico. ";
     }else if(ponto4.length > ponto1.length
         && ponto4.length > ponto2.length
         && ponto4.length > ponto3.length
         && ponto4.length > ponto5.length){
         personagem = 'Chopper';
+        document.getElementById("nomePersonagem").innerText = 'Tony Tony CHopper';
         document.getElementById("imagemQuiz").src = "../assets/chopper.jpg";
-        document.querySelector("#resultado p").innerText = "Você é o chopper! Rei dos Piratas, faminto por liberdade e carne!";
+        document.querySelector("#resultado p").innerText = "A personalidade de Tony Tony Chopper é marcante em One Piece, combinando gentileza e bondade com um lado ingênuo e, por vezes, um pouco tímido. Ele é um médico de coração sensível e carinhoso, que se preocupa profundamente com seus companheiros e os trata como uma família. ";
     }else if(ponto5.length > ponto1.length
         && ponto5.length > ponto2.length
         && ponto5.length > ponto3.length
         && ponto5.length > ponto4.length){
-        personagem = 'Sanji';
+        personagem = ' Vinsmoke Sanji';
+        document.getElementById("nomePersonagem").innerHTML = 'Vismokin Sanji';
         document.getElementById("imagemQuiz").src = "../assets/sanji.jpg";
-        document.querySelector("#resultado p").innerText = "Você é o sanji! Rei dos Piratas, faminto por liberdade e carne!";
+        document.querySelector("#resultado p").innerText = "Sanji costuma manter a calma em situações difíceis e é conhecido por sua compostura, mas isso é contrastado com suas explosões de raiva e paixão, principalmente quando envolve mulheres ou quando é insultado.";
     }
 
     guardar(personagem)

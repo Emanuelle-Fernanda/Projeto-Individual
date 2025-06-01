@@ -15,18 +15,21 @@
 </head>
 <body>
 
+    <div class="alerta_erro">
+              <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+              </div>
+            </div>
+
     <div class="cadastro">
+
+      
         <div class="container">
             
             <a href="index.html"><div id="button-float"><i class="fa-solid fa-arrow-left"></i></div></a>
 
             <img src="./assets/Luffy Oden Roger wallpaper (1).jpg" alt="" width="450px">
-            
-            <div class="alerta_erro">
-              <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-              </div>
-            </div>
+          
 
             <div class="form">
             <img src="./assets/logo.png" alt="" width="110px">
@@ -34,7 +37,7 @@
             <p>Nome</p>
             <input id="nome_input" type="text" placeholder="Emanuelle Fernanda">
             <p>Email</p>
-            <input id="email_input" type="text" placeholder="fulano@gmail.com">
+            <input id="email_input" type="email" placeholder="fulano@gmail.com">
             <p>Senha</p>
             <input id="senha_input" type="password" placeholder="******">
             <p>Confirmar Senha</p>
@@ -66,6 +69,7 @@
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
 
+
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
@@ -80,6 +84,16 @@
       finalizarAguardar();
       return false;
     } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    if(!emailVar.includes('@')){
+      mensagem_erro.innerHTML =
+        "Email invalido precisa de @";
+
+      finalizarAguardar();
+      return false;
+    }else {
       setInterval(sumirMensagem, 5000);
     }
 
