@@ -10,15 +10,15 @@ body{
 }
 
 .dashboard nav{
-    
+    position: fixed;
     display: flex;
-    width: 17%;
     height: 100vh;
     background-color:#041548;
 }
 .dashboard .container-left{
-    margin-left: 17%;
-    margin-top: 60px;
+    padding-top: 50px;
+    padding-left: 45px;
+    padding-right: 45px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -47,15 +47,14 @@ body{
 
 
 header{
-    
+    position: fixed;
     display: flex;
     align-items: center;
     background-color:#0c2369;
     padding-left: 20px;
-    color: rgb(0, 0, 0);
     height: 70px ;
     justify-content: space-between;
-    width: 99.95%;
+    width: 100.7%;
     box-shadow:20px 2px 20px rgba(0, 0, 0, 0.527);
 }
 
@@ -173,11 +172,12 @@ header button{
 
 .sectionDash{
     width: 81.7%;
+    margin-left: 250px;
 }
 
 .sectionDash .resultados{
-    margin: 30px;
-    height: 550px;
+    margin-top: 110px;
+    margin-left: 40px;
 }
 .sectionDash .resultados .card1{
     border-radius: 5px;
@@ -220,7 +220,7 @@ header button{
     text-align: center;
     margin-top: 50px;
     font-weight: 700;
-    font-size: 45px;
+    font-size: 65px;
 }
 
 #graficoCaracteristicas{

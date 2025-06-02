@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="../css/dash.css" />
     <title>Dashboard One Piece</title>
 
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     
   </head>
   <body onload="dadosDash()">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div class="dashboard">
       <nav class="nav-left" id="dash">
         <div class="container-left">
@@ -50,18 +51,12 @@
             <div class="card1">
               <img
                 id="imagemdash"
-                src="../assets/luffypng-removebg-preview.png"
-                alt="imagem luffy"
-                width="123px"
+                
               />
               <div class="txt">
-                <h1 id="titulo_resultado">Resultado: Monkey D.Luffy!</h1>
+                <h1 id="titulo_resultado">Infelizmente você ainda não possui um personagem!</h1>
                 <p id="texto_personagem">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit nostrum autem vero nihil amet deserunt,
-                  voluptates illo soluta odio dolorem veritatis nesciunt
-                  repellat excepturi similique magni assumenda beatae
-                  repudiandae doloremque!
+                  (Realize o Quiz para descobrir qual personagem você seria e volte aqui novamente)
                 </p>
               </div>
             </div>
@@ -70,19 +65,24 @@
           <div class="kpis">
             <div class="kpi1">
               <p>Caracteristicas predominantes</p>
-              <canvas id="graficoCaracteristicas"> </canvas>
+              <canvas id="donut"> </canvas>
             </div>
 
             <div class="kpi1">
-              <p>Pessoas o resultado é <b id="nome_personagem">mesmo personagem</b></p>
-              <p class="quantidade" id="quantidade_mesmo_personagem">10</p>
+              <p>Pessoas que o resultado é <b id="nome_personagem">mesmo personagem</b></p>
+              <p class="quantidade" id="quantidade_mesmo_personagem"></p>
             </div>
 
             <div class="kpi1">
-              <p>Total de Pessoasque responderam o QUIZ</p>
+              <p>Pessoas que responderam o QUIZ</p>
               <p class="quantidade" id="quantidade_user_quiz">20</p>
             </div>
           </div>
+          <div class="kpi1">
+            <canvas id="barras" width="300px" height="100px"></canvas>
+          </div>
+          
+
         </div>
       </div>
     </div>
@@ -90,37 +90,275 @@
 </html>
 
 <script>
-
+  const dados = JSON.parse(sessionStorage.DADOS_DASHBOARD);
   user.innerHTML = sessionStorage.NOME_USUARIO;
 
- const ctx = document.getElementById('graficoCaracteristicas').getContext('2d');
-  const data = {
-    datasets: [{
-      label: 'My First Dataset',
-      data: [15, 40, 20,10, 25],
-      backgroundColor: [
-        '#f3dd05  ',
-        '#e67e22 ',
-        '#0080ff',
-        '#229954',
-        '#f30580'
-      ],
-      hoverOffset: 4
-    }]
+  const ctxBarras = document.getElementById('barras').getContext('2d');
+  const ctxDonut = document.getElementById('donut').getContext('2d');
+
+  const graficoBarras = new Chart(ctxBarras, {
     
-  };
+    type: 'bar',
+    data: {
+      labels: ['Luffy', 'Zoro', 'Robin', 'Sanji', 'Chopper'],
+      datasets: [{
+      label: 'Níveis de Personalidade',
+      data: [dados[0].Luffy, dados[0].Zoro, dados[0].Robin, dados[0].Chopper, dados[0].Sanji],
+      backgroundColor: [ 
+      '#D62828',
+      '#1B4332', 
+      '#6A0572',
+      '#F5E9BE',
+      '#A2D2FF'],
+      barThickness: 100,           
+      
+        
+      }]
+    },
+      options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: '#333',
+          font: {
+            size: 10,
+            family: 'Arial'
+          }
+        }
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 15,
+        ticks: {
+          stepSize: 1,
+          color: '#444',
+          font: {
+            size: 12
+          }
+        },
+        grid: {
+          color: '#eee'
+        }
+      },
+      x: {
+        ticks: {
+          color: '#444',
+          font: {
+            size: 12
+          }
+        },
+        grid: {
+          display: false
+        }
+      }
+    }
+  }
+});
 
-  const config = {
+if(dados[0].personagemUsuario == 'Sanji'){
+  const graficoDonut = new Chart(ctxDonut, {
     type: 'doughnut',
-    data: data,
-  };
-
-  new Chart(ctx, config);
+    data: {
+        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        datasets: [{
+            label: 'Níveis de Personalidade',
+            data: [20, 15, 10, 25, 19],
+            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+        }]
+    },
+    options: {
+        // Aumenta o padding ao redor do gráfico (espaço interno)
+        layout: {
+            padding: {
+                left: 10,   // Espaço à esquerda do gráfico
+                right: 10,  // Espaço à direita
+                top: 20,    // Espaço acima
+                bottom: 20  // Espaço abaixo
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'botton',
+                labels: {
+                    padding: 4,
+                    right:70,
+                    color: '#333',
+                    font: {
+                        size: 10,
+                        family: 'Arial'
+                    }
+                }
+            }
+        }
+    }
+});
+}else if(dados[0].personagemUsuario == 'Luffy'){
+  const graficoDonut = new Chart(ctxDonut, {
+    type: 'doughnut',
+    data: {
+        labels: ['Positivo', 'Coragem', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        datasets: [{
+            label: 'Níveis de Personalidade',
+            data: [20, 15, 10, 25, 19],
+            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+        }]
+    },
+    options: {
+        // Aumenta o padding ao redor do gráfico (espaço interno)
+        layout: {
+            padding: {
+                left: 10,   // Espaço à esquerda do gráfico
+                right: 10,  // Espaço à direita
+                top: 20,    // Espaço acima
+                bottom: 20  // Espaço abaixo
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'botton',
+                labels: {
+                    padding: 4,
+                    right:70,
+                    color: '#333',
+                    font: {
+                        size: 10,
+                        family: 'Arial'
+                    }
+                }
+            }
+        }
+    }
+});
+}else if(dados[0].personagemUsuario == 'Robin'){
+  const graficoDonut = new Chart(ctxDonut, {
+    type: 'doughnut',
+    data: {
+        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        datasets: [{
+            label: 'Níveis de Personalidade',
+            data: [20, 15, 10, 25, 19],
+            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+        }]
+    },
+    options: {
+        // Aumenta o padding ao redor do gráfico (espaço interno)
+        layout: {
+            padding: {
+                left: 10,   // Espaço à esquerda do gráfico
+                right: 10,  // Espaço à direita
+                top: 20,    // Espaço acima
+                bottom: 20  // Espaço abaixo
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'botton',
+                labels: {
+                    padding: 4,
+                    right:70,
+                    color: '#333',
+                    font: {
+                        size: 10,
+                        family: 'Arial'
+                    }
+                }
+            }
+        }
+    }
+});
+}else if(dados[0].personagemUsuario == 'Chopper'){
+  const graficoDonut = new Chart(ctxDonut, {
+    type: 'doughnut',
+    data: {
+        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        datasets: [{
+            label: 'Níveis de Personalidade',
+            data: [20, 15, 10, 25, 19],
+            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+        }]
+    },
+    options: {
+        // Aumenta o padding ao redor do gráfico (espaço interno)
+        layout: {
+            padding: {
+                left: 10,   // Espaço à esquerda do gráfico
+                right: 10,  // Espaço à direita
+                top: 20,    // Espaço acima
+                bottom: 20  // Espaço abaixo
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'botton',
+                labels: {
+                    padding: 4,
+                    right:70,
+                    color: '#333',
+                    font: {
+                        size: 10,
+                        family: 'Arial'
+                    }
+                }
+            }
+        }
+    }
+});
+}else if(dados[0].personagemUsuario == 'Zoro'){
+  const graficoDonut = new Chart(ctxDonut, {
+    type: 'doughnut',
+    data: {
+        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        datasets: [{
+            label: 'Níveis de Personalidade',
+            data: [20, 15, 10, 25, 19],
+            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+        }]
+    },
+    options: {
+        // Aumenta o padding ao redor do gráfico (espaço interno)
+        layout: {
+            padding: {
+                left: 10,   // Espaço à esquerda do gráfico
+                right: 10,  // Espaço à direita
+                top: 20,    // Espaço acima
+                bottom: 20  // Espaço abaixo
+            }
+        },
+        plugins: {
+            legend: {
+                display: true,
+                position: 'botton',
+                labels: {
+                    padding: 4,
+                    right:70,
+                    color: '#333',
+                    font: {
+                        size: 10,
+                        family: 'Arial'
+                    }
+                }
+            }
+        }
+    }
+});
+}
+  //grafico donut
 
   function quiz(){
     window.location = "./quiz.html"
   }
 
+
+
+ 
   function dadosDash() {
 
     fetch("/dashboard/buscarDados", {
@@ -140,25 +378,65 @@
           resposta.json().then(function(respostadados){
             sessionStorage.setItem('DADOS_DASHBOARD', JSON.stringify(respostadados.dadosDash));
 
-            var dados = JSON.parse(sessionStorage.DADOS_DASHBOARD);
-            var totalPersonagemUsu = dados[0].personagemUsuario1;
-  
-            document.getElementById('titulo_resultado').innerHTML = totalPersonagemUsu;
+           
+            //personagem que usuario tirou
+            var totalPersonagemUsu = dados[0].personagemUsuario;
 
             if(totalPersonagemUsu == 'Robin'){
+
+              document.getElementById('titulo_resultado').innerHTML = 'Nico ' + totalPersonagemUsu;
+              quantidade_mesmo_personagem.innerHTML = dados[0].Robin || '0';
+              
+              //imagem resultado personagem robin
               document.getElementById('texto_personagem').innerHTML = 'Nico Robin é caracterizada pela sua calma, paciência e inteligência, sendo uma das personagens mais racionais da tripulação. Ela é reservada e gosta de ler e estudar.'
               document.getElementById('imagemdash').src = '../assets/robindash.png';
-              const imagem = document.getElementById('imagemdash');
+              let imagem = document.getElementById('imagemdash');
               imagem.alt = "Imagem da Robin";
               imagem.width = 160;
             }else if(totalPersonagemUsu == 'Luffy'){
 
+              document.getElementById('titulo_resultado').innerHTML = 'Monkey D.' + totalPersonagemUsu;
+              quantidade_mesmo_personagem.innerHTML = dados[0].Luffy || 0;
+
+              document.getElementById('texto_personagem').innerHTML = 'Ele é caracterizado pela sua natureza despreocupada, otimista e aventureira. Ele é um personagem alegre, com um grande apetite e que não se preocupa muito com as consequências de suas ações, mas que se esforça para cumprir seus objetivos e proteger seus amigos.';
+              document.getElementById('imagemdash').src = '../assets/luffypngpng.png';
+              let imagem = document.getElementById('imagemdash');
+              imagem.alt = "Imagem da Robin";
+              imagem.width = 123;
+            }else if(totalPersonagemUsu == 'Zoro'){
+
+              document.getElementById('titulo_resultado').innerHTML = 'Roronoa ' + totalPersonagemUsu;
+              quantidade_mesmo_personagem.innerHTML = dados[0].Zoro ;
+
+              document.getElementById('texto_personagem').innerHTML = 'Roronoa Zoro é caracterizado por ser reservado, sério e com poucas palavras, preferindo agir em vez de falar. Ele é leal, honesto e possui um forte senso de honra. Apesar de sua postura séria, Zoro também pode ser impulsivo e, por vezes, demonstrar um lado cômico.';
+              document.getElementById('imagemdash').src = '../assets/zoropng.png';
+              let imagem = document.getElementById('imagemdash');
+              imagem.alt = "Imagem do zoro";
+              imagem.width = 123;
+            }else if(totalPersonagemUsu == 'Chopper'){
+              document.getElementById('titulo_resultado').innerHTML = 'Tony Tony ' + totalPersonagemUsu;
+              quantidade_mesmo_personagem.innerHTML = dados[0].Chopper ;
+
+              document.getElementById('texto_personagem').innerHTML = 'A personalidade de Tony Tony Chopper é marcante em One Piece, combinando gentileza e bondade com um lado ingênuo e, por vezes, um pouco tímido. Ele é um médico de coração sensível e carinhoso, que se preocupa profundamente com seus companheiros e os trata como uma família. ';
+              document.getElementById('imagemdash').src = '../assets/literatura.png';
+              let imagem = document.getElementById('imagemdash');
+              imagem.alt = "Imagem Chopper";
+              imagem.width = 143;
+            }else if(totalPersonagemUsu == 'Sanji'){
+
+              document.getElementById('titulo_resultado').innerHTML = 'Vismoken ' + totalPersonagemUsu;
+              quantidade_mesmo_personagem.innerHTML = dados[0].Sanji ;
+
+              document.getElementById('texto_personagem').innerHTML = 'Sanji costuma manter a calma em situações difíceis e é conhecido por sua compostura, mas isso é contrastado com suas explosões de raiva e paixão, principalmente quando envolve mulheres ou quando é insultado. ';
+              document.getElementById('imagemdash').src = '../assets/sanjipng.png';
+              let imagem = document.getElementById('imagemdash');
+              imagem.alt = "Imagem Sanji";
+              imagem.width = 143;
             }
 
 
-            nome_personagem.innerHTML = dados[0].personagemUsuario1 || 'indefinido';
+            nome_personagem.innerHTML = dados[0].personagemUsuario || 'indefinido';
             quantidade_user_quiz.innerHTML = dados[0].totalUsuariosResponderam;
-            quantidade_mesmo_personagem.innerHTML = dados[0].Robin 
           });
           
         } else {
@@ -171,15 +449,4 @@
 
     return false;
   }
-</script>
-
-<!-- 
-    1- coletar o resultado ao finalizar(view)
-    2 - fetch() enviando os dados necessarios para realizar o cadastro de quiz(view)
-    3 - 'quizController.guardar' manejar a função controller para inserir o quiz resultado no banco(controller)
-    4 - quizModel.guardar manejar a funçaõ que comunica com o banco para inserir os dados no mysql (model)
-    5 - ação pos requisição (view)
--->
-
-
 </script>
