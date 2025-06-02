@@ -50,7 +50,7 @@
           assumenda voluptatem non aut earum minima asperiores qui, accusantium
           culpa soluta ducimus perspiciatis deserunt.
         </p>
-        <button id='voltar_dash' onclick="window.location.href = 'dash.html'">Voltar Dashboard</button>
+        <button id='voltar_dash' onclick="window.location.href = 'dash.html'" ondblclick="">Voltar Dashboard</button>
       </div>
     </div>
   </body>
@@ -146,7 +146,6 @@
   const ponto3 = [];
   const ponto4 = [];
   const ponto5 = [];
-  const lista_resposta = [];
   let personagem = '';
 
   
@@ -191,8 +190,6 @@
     } else {
       document.getElementById("btFinalizar").style.display = "none";
     }
-    
-
   }
 
   function voltar() {
@@ -213,12 +210,12 @@
     document.getElementById("5").innerHTML = questaoAtual.alternativaE;
   }
 
+
+
+
   function finalizar() {
     document.getElementById("jogo").style.display = "none";
     document.getElementById("resultado").style.display = "block";
-
-    //armazenando todas as respostas do usuario
-    lista_resposta.push(ponto1, ponto2, ponto3, ponto4, ponto5);
 
     if(
         ponto1.length > ponto2.length
@@ -311,7 +308,6 @@
         if (resposta.ok) {
           alert(
             "Resposta inserida"
-    
           );
           //guardando a resposta do personagem
           sessionStorage.setItem('PERSONAGEM', JSON.stringify(resposta))

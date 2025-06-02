@@ -16,10 +16,7 @@
           <img src="../assets/logo.png" alt="" width="160px" />
           <h3>Seja Bem Vindo</h3>
           <p id="user">Usuario</p>
-          <button>Personagem</button>
-          <button onclick="quiz()">Quiz
-
-          </button >
+          <button onclick="quiz()">Quiz</button >
           <button id="sair" onclick="window.location.href = '../index.html'">Sair</button>
         </div>
       </nav>
@@ -28,10 +25,9 @@
         <header id="nav">
           <div class="navbar">
             <u>
-              <a href="../index.html"><li>Home</li></a>
-              <a href="personagens.html"><li>Personagens</li></a>
-              <a href="quiz"><li>Anime</li></a>
-              <a href="quiz"><li>Ilhas</li></a>
+              <a id="home" href="../index.html"><li>Home</li></a>
+                <a href="../personagens.html"><li>Personagens</li></a>
+                <a href="../anime.html"><li>Criador One Piece</li></a>
             </u>
           </div>
           <!--<div class="color">
@@ -102,7 +98,7 @@
     data: {
       labels: ['Luffy', 'Zoro', 'Robin', 'Sanji', 'Chopper'],
       datasets: [{
-      label: 'Níveis de Personalidade',
+      label: 'Quandidade de resultados',
       data: [dados[0].Luffy, dados[0].Zoro, dados[0].Robin, dados[0].Chopper, dados[0].Sanji],
       backgroundColor: [ 
       '#D62828',
@@ -163,30 +159,63 @@ if(dados[0].personagemUsuario == 'Sanji'){
   const graficoDonut = new Chart(ctxDonut, {
     type: 'doughnut',
     data: {
-        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        labels: ['Elegância', 'Romantismo', 'Habilidades Culinárias', 'Lealdade', 'Agilidade'],
         datasets: [{
-            label: 'Níveis de Personalidade',
-            data: [20, 15, 10, 25, 19],
-            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+            data: [25, 20, 30, 15, 10],
+            backgroundColor: ['#FF2D00', '#FF8C42', '#FFBB56', '#FFE66D', '#8B0000'],
         }]
     },
     options: {
-        // Aumenta o padding ao redor do gráfico (espaço interno)
         layout: {
             padding: {
-                left: 10,   // Espaço à esquerda do gráfico
-                right: 10,  // Espaço à direita
-                top: 20,    // Espaço acima
-                bottom: 20  // Espaço abaixo
+                left: 10,
+                right: 10,
+                top: 20,
+                bottom: 20
             }
         },
         plugins: {
             legend: {
-                display: true,
-                position: 'botton',
+                display: false,
+                position: 'left',
                 labels: {
                     padding: 4,
                     right:70,
+                    color: '#333',
+                    font: {
+                        size: 10,
+                        family: 'Arial'
+                    },
+                }
+            }
+        }
+    }
+});
+} else if(dados[0].personagemUsuario == 'Luffy'){
+  const graficoDonut = new Chart(ctxDonut, {
+    type: 'doughnut',
+    data: {
+        labels: ['Coragem', 'Determinação', 'Lealdade', 'Apetite', 'Liderança'],
+        datasets: [{
+            data: [30, 25, 20, 15, 10],
+            backgroundColor: ['#FF0000', '#FF4500', '#FF8C00', '#FFD700', '#8B0000'],
+        }]
+    },
+    options: {
+        layout: {
+            padding: {
+                left: 10,
+                right: 10,
+                top: 20,
+                bottom: 20
+            }
+        },
+        plugins: {
+            legend: {
+                display: false,
+                position: 'bottom',
+                labels: {
+                    padding: 4,
                     color: '#333',
                     font: {
                         size: 10,
@@ -197,34 +226,31 @@ if(dados[0].personagemUsuario == 'Sanji'){
         }
     }
 });
-}else if(dados[0].personagemUsuario == 'Luffy'){
+} else if(dados[0].personagemUsuario == 'Robin'){
   const graficoDonut = new Chart(ctxDonut, {
     type: 'doughnut',
     data: {
-        labels: ['Positivo', 'Coragem', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        labels: ['Inteligência', 'Elegância', 'Mistério', 'Lealdade', 'Habilidades Arqueológicas'],
         datasets: [{
-            label: 'Níveis de Personalidade',
-            data: [20, 15, 10, 25, 19],
-            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+            data: [30, 20, 25, 15, 10],
+            backgroundColor: ['#6A0DAD', '#9370DB', '#8A2BE2', '#9932CC', '#4B0082'],
         }]
     },
     options: {
-        // Aumenta o padding ao redor do gráfico (espaço interno)
         layout: {
             padding: {
-                left: 10,   // Espaço à esquerda do gráfico
-                right: 10,  // Espaço à direita
-                top: 20,    // Espaço acima
-                bottom: 20  // Espaço abaixo
+                left: 10,
+                right: 10,
+                top: 20,
+                bottom: 20
             }
         },
         plugins: {
             legend: {
-                display: true,
-                position: 'botton',
+                display: false,
+                position: 'bottom',
                 labels: {
                     padding: 4,
-                    right:70,
                     color: '#333',
                     font: {
                         size: 10,
@@ -235,34 +261,31 @@ if(dados[0].personagemUsuario == 'Sanji'){
         }
     }
 });
-}else if(dados[0].personagemUsuario == 'Robin'){
+} else if(dados[0].personagemUsuario == 'Chopper'){
   const graficoDonut = new Chart(ctxDonut, {
     type: 'doughnut',
     data: {
-        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        labels: ['Inocência', 'Habilidades Médicas', 'Força (Ponto Forte)', 'Amizade', 'Coragem'],
         datasets: [{
-            label: 'Níveis de Personalidade',
-            data: [20, 15, 10, 25, 19],
-            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+            data: [20, 30, 15, 25, 10],
+            backgroundColor: ['#FF69B4', '#FF1493', '#FF6347', '#FFA07A', '#DB7093'],
         }]
     },
     options: {
-        // Aumenta o padding ao redor do gráfico (espaço interno)
         layout: {
             padding: {
-                left: 10,   // Espaço à esquerda do gráfico
-                right: 10,  // Espaço à direita
-                top: 20,    // Espaço acima
-                bottom: 20  // Espaço abaixo
+                left: 10,
+                right: 10,
+                top: 20,
+                bottom: 20
             }
         },
         plugins: {
             legend: {
-                display: true,
-                position: 'botton',
+                display: false,
+                position: 'bottom',
                 labels: {
                     padding: 4,
-                    right:70,
                     color: '#333',
                     font: {
                         size: 10,
@@ -273,72 +296,32 @@ if(dados[0].personagemUsuario == 'Sanji'){
         }
     }
 });
-}else if(dados[0].personagemUsuario == 'Chopper'){
+} else if(dados[0].personagemUsuario == 'Zoro'){
   const graficoDonut = new Chart(ctxDonut, {
     type: 'doughnut',
     data: {
-        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
+        labels: ['Força', 'Determinação', 'Habilidades com Espadas', 'Lealdade', 'Resistência'],
         datasets: [{
-            label: 'Níveis de Personalidade',
-            data: [20, 15, 10, 25, 19],
-            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
+            data: [30, 25, 25, 15, 5],
+            backgroundColor: ['#006400', '#2E8B57', '#3CB371', '#90EE90', '#008000'],
         }]
     },
     options: {
-        // Aumenta o padding ao redor do gráfico (espaço interno)
         layout: {
             padding: {
-                left: 10,   // Espaço à esquerda do gráfico
-                right: 10,  // Espaço à direita
-                top: 20,    // Espaço acima
-                bottom: 20  // Espaço abaixo
+                left: 0,
+                right: 0,
+                top: 20,
+                bottom: 20
             }
         },
         plugins: {
             legend: {
-                display: true,
-                position: 'botton',
+                display: false,
+                position: 'left',
                 labels: {
-                    padding: 4,
-                    right:70,
-                    color: '#333',
-                    font: {
-                        size: 10,
-                        family: 'Arial'
-                    }
-                }
-            }
-        }
-    }
-});
-}else if(dados[0].personagemUsuario == 'Zoro'){
-  const graficoDonut = new Chart(ctxDonut, {
-    type: 'doughnut',
-    data: {
-        labels: ['Elegância', 'Romantismo', 'Lealdade', 'Paixão Culinária', 'Criatividade'],
-        datasets: [{
-            label: 'Níveis de Personalidade',
-            data: [20, 15, 10, 25, 19],
-            backgroundColor: ['#fa0885', '#F5A3C7', '#faa208', '#FF8C42', '#8E44AD'],
-        }]
-    },
-    options: {
-        // Aumenta o padding ao redor do gráfico (espaço interno)
-        layout: {
-            padding: {
-                left: 10,   // Espaço à esquerda do gráfico
-                right: 10,  // Espaço à direita
-                top: 20,    // Espaço acima
-                bottom: 20  // Espaço abaixo
-            }
-        },
-        plugins: {
-            legend: {
-                display: true,
-                position: 'botton',
-                labels: {
-                    padding: 4,
-                    right:70,
+                    padding: 1,
+                    right:200,
                     color: '#333',
                     font: {
                         size: 10,
